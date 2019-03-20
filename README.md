@@ -7,6 +7,7 @@ Provide a scale view with iOS MKMapView:<br>
 
 ### How to use:
 
+```
 let scale_view: UIMapScaleView
 
 
