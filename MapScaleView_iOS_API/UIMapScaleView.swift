@@ -11,21 +11,21 @@ import MapKit
 import Darwin
 
 
-enum MapScaleExpandDirection
+public enum MapScaleExpandDirection
 {
-    case ltr // left to right
-    case rtl // right to right
+    case leftToRight // left to right
+    case rightToLeft // right to right
 }
 
 
 @IBDesignable
-class UIMapScaleView: UIView
+public final class UIMapScaleView: UIView
 {
     private let SCALE_BAR_HEIGHT = CGFloat(4.5)
     private let PADDING = CGFloat(1)
     
     
-    public var direction: MapScaleExpandDirection = MapScaleExpandDirection.ltr
+    public var direction: MapScaleExpandDirection = .leftToRight
     
     @IBInspectable public var bodyColor: UIColor = UIColor.darkGray
     {
@@ -61,7 +61,7 @@ class UIMapScaleView: UIView
         self.initView()
     }
 
-    override func layoutSubviews()
+    public override func layoutSubviews()
     {
         super.layoutSubviews()
         
@@ -103,11 +103,11 @@ class UIMapScaleView: UIView
             
             switch self.direction
             {
-                case MapScaleExpandDirection.ltr:
+                case .leftToRight:
                     self.distanceLabel?.textAlignment = .left
                     break
                 
-                case MapScaleExpandDirection.rtl:
+                case .rightToLeft:
                     self.distanceLabel?.textAlignment = .right
                     break
             }
@@ -124,7 +124,7 @@ class UIMapScaleView: UIView
 
             switch self.direction
             {
-                case MapScaleExpandDirection.ltr:
+                case MapScaleExpandDirection.leftToRight:
                     // draw outline
                     context.setFillColor(self.outlineColor.cgColor)
                     
@@ -152,7 +152,7 @@ class UIMapScaleView: UIView
                                         height: (SCALE_BAR_HEIGHT*2) - (PADDING*2)))
                     break
                 
-                case MapScaleExpandDirection.rtl:
+                case MapScaleExpandDirection.rightToLeft:
                     // draw outline
                     context.setFillColor(self.outlineColor.cgColor)
                     
