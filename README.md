@@ -30,5 +30,4 @@ func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool)
 {
    scaleView.setNeedsLayout()
 }
-
 ```
