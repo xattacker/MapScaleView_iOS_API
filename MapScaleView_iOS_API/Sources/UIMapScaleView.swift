@@ -24,7 +24,6 @@ public final class UIMapScaleView: UIView
     private let SCALE_BAR_HEIGHT = CGFloat(4.5)
     private let PADDING = CGFloat(1)
     
-    
     public var direction: MapScaleExpandDirection = .leftToRight
     
     @IBInspectable public var bodyColor: UIColor = UIColor.darkGray

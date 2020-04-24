@@ -12,7 +12,7 @@
 		656B415F224246320082D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656B415D224246320082D3F5 /* Main.storyboard */; };
 		656B4161224246330082D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656B4160224246330082D3F5 /* Assets.xcassets */; };
 		656B4164224246330082D3F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656B4162224246330082D3F5 /* LaunchScreen.storyboard */; };
-		656B416C2242467A0082D3F5 /* UIMapScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B416B2242467A0082D3F5 /* UIMapScaleView.swift */; };
+		68A40D012452B3040032147E /* UIMapScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A40D002452B3030032147E /* UIMapScaleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		656B4160224246330082D3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		656B4163224246330082D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		656B4165224246330082D3F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		656B416B2242467A0082D3F5 /* UIMapScaleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMapScaleView.swift; sourceTree = "<group>"; };
+		68A40D002452B3030032147E /* UIMapScaleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMapScaleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 		656B4158224246320082D3F5 /* MapScaleView_iOS_API */ = {
 			isa = PBXGroup;
 			children = (
-				656B416B2242467A0082D3F5 /* UIMapScaleView.swift */,
+				68A40CFF2452B3030032147E /* Sources */,
 				656B4159224246320082D3F5 /* AppDelegate.swift */,
 				656B415B224246320082D3F5 /* ViewController.swift */,
 				656B415D224246320082D3F5 /* Main.storyboard */,
@@ -65,6 +65,14 @@
 				656B4165224246330082D3F5 /* Info.plist */,
 			);
 			path = MapScaleView_iOS_API;
+			sourceTree = "<group>";
+		};
+		68A40CFF2452B3030032147E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				68A40D002452B3030032147E /* UIMapScaleView.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				656B416C2242467A0082D3F5 /* UIMapScaleView.swift in Sources */,
+				68A40D012452B3040032147E /* UIMapScaleView.swift in Sources */,
 				656B415C224246320082D3F5 /* ViewController.swift in Sources */,
 				656B415A224246320082D3F5 /* AppDelegate.swift in Sources */,
 			);
@@ -296,6 +304,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "xattacker.MapScaleView-iOS-API";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -315,6 +324,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "xattacker.MapScaleView-iOS-API";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
