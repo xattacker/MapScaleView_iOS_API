@@ -9,7 +9,7 @@ Provide a scale view with iOS MKMapView:<br>
 # Installation
 
 ```
-Cocoapods
+Cocoapods:
 MapScaleView can be added to your project using CocoaPods 0.36 or later by adding the following line to your Podfile:
 
 pod 'MapScaleView'
