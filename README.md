@@ -19,6 +19,8 @@ pod 'MapScaleView'
 ### How to use:
 
 ```
+import MapScaleView
+
 let scale_view: UIMapScaleView
 
 
