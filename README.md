@@ -22,7 +22,6 @@ import MapScaleView
 
 let scale_view: UIMapScaleView
 
-
 scale_view.setup(mapView) // initial 
 
 
