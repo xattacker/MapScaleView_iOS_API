@@ -3,7 +3,7 @@
 a iOS swift Map ScaleView UI View component 
 
 Provide a scale view with iOS MKMapView:<br>
-![avatar](/rm_res/cut1.png)<br><br>
+<img src="/rm_res/cut1.png" alt="图片替换文本" width="500" height="313" align="bottom" /><br><br>
 
 
 # Installation
