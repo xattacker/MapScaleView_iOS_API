@@ -117,68 +117,71 @@ public final class UIMapScaleView: UIView
     {
         super.draw(rect)
         
-        if let context = UIGraphicsGetCurrentContext()
+        guard let context = UIGraphicsGetCurrentContext() else
         {
-            context.setFillColor(UIColor.darkText.cgColor)
+            return
+        }
+        
+        
+        context.setFillColor(UIColor.darkText.cgColor)
 
-            switch self.direction
-            {
-                case MapScaleExpandDirection.leftToRight:
-                    // draw outline
-                    context.setFillColor(self.outlineColor.cgColor)
-                    
-                    context.fill(CGRect(x: PADDING,
-                                        y: self.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING*2),
-                                        width: self.scaledWidth,
-                                        height: SCALE_BAR_HEIGHT))
-                    
-                    context.fill(CGRect(x: self.scaledWidth - SCALE_BAR_HEIGHT + PADDING,
-                                        y: self.bounds.size.height - (SCALE_BAR_HEIGHT*2) - (PADDING*2),
-                                        width: SCALE_BAR_HEIGHT,
-                                        height: SCALE_BAR_HEIGHT*2))
-                    
-                    
-                    context.setFillColor(self.bodyColor.cgColor)
-                    
-                    context.fill(CGRect(x: PADDING + PADDING,
-                                        y: self.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING),
-                                        width: self.scaledWidth - (PADDING*2),
-                                        height: SCALE_BAR_HEIGHT - (PADDING*2)))
-                    
-                    context.fill(CGRect(x: self.scaledWidth - SCALE_BAR_HEIGHT + (PADDING*2),
-                                        y: self.bounds.size.height - (SCALE_BAR_HEIGHT*2) - (PADDING),
-                                        width: SCALE_BAR_HEIGHT - (PADDING*2),
-                                        height: (SCALE_BAR_HEIGHT*2) - (PADDING*2)))
-                    break
-                
-                case MapScaleExpandDirection.rightToLeft:
-                    // draw outline
-                    context.setFillColor(self.outlineColor.cgColor)
-                    
-                    context.fill(CGRect(x: self.bounds.size.width - self.scaledWidth,
-                                        y: self.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING*2),
-                                        width: self.scaledWidth,
-                                        height: SCALE_BAR_HEIGHT))
-                    
-                    context.fill(CGRect(x: self.bounds.size.width - self.scaledWidth,
-                                        y: self.bounds.size.height - (SCALE_BAR_HEIGHT*2) - (PADDING*2),
-                                        width: SCALE_BAR_HEIGHT,
-                                        height: SCALE_BAR_HEIGHT*2))
-                    
-                    
-                    context.setFillColor(self.bodyColor.cgColor)
-                    
-                    context.fill(CGRect(x: self.bounds.size.width - self.scaledWidth + PADDING,
-                                        y: self.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING),
-                                        width: self.scaledWidth - (PADDING*2),
-                                        height: SCALE_BAR_HEIGHT - (PADDING*2)))
-                    
-                    context.fill(CGRect(x: self.bounds.size.width - self.scaledWidth + PADDING,
-                                        y: self.bounds.size.height - (SCALE_BAR_HEIGHT*2) - (PADDING),
-                                        width: SCALE_BAR_HEIGHT - (PADDING*2),
-                                        height: (SCALE_BAR_HEIGHT*2) - (PADDING*2)))
-                    break
-            }
+        switch self.direction
+        {
+            case MapScaleExpandDirection.leftToRight:
+                // draw outline
+                context.setFillColor(self.outlineColor.cgColor)
+
+                context.fill(CGRect(x: PADDING,
+                                    y: self.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING*2),
+                                    width: self.scaledWidth,
+                                    height: SCALE_BAR_HEIGHT))
+
+                context.fill(CGRect(x: self.scaledWidth - SCALE_BAR_HEIGHT + PADDING,
+                                    y: self.bounds.size.height - (SCALE_BAR_HEIGHT*2) - (PADDING*2),
+                                    width: SCALE_BAR_HEIGHT,
+                                    height: SCALE_BAR_HEIGHT*2))
+
+
+                context.setFillColor(self.bodyColor.cgColor)
+
+                context.fill(CGRect(x: PADDING + PADDING,
+                                    y: self.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING),
+                                    width: self.scaledWidth - (PADDING*2),
+                                    height: SCALE_BAR_HEIGHT - (PADDING*2)))
+
+                context.fill(CGRect(x: self.scaledWidth - SCALE_BAR_HEIGHT + (PADDING*2),
+                                    y: self.bounds.size.height - (SCALE_BAR_HEIGHT*2) - (PADDING),
+                                    width: SCALE_BAR_HEIGHT - (PADDING*2),
+                                    height: (SCALE_BAR_HEIGHT*2) - (PADDING*2)))
+                break
+
+            case MapScaleExpandDirection.rightToLeft:
+                // draw outline
+                context.setFillColor(self.outlineColor.cgColor)
+
+                context.fill(CGRect(x: self.bounds.size.width - self.scaledWidth,
+                                    y: self.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING*2),
+                                    width: self.scaledWidth,
+                                    height: SCALE_BAR_HEIGHT))
+
+                context.fill(CGRect(x: self.bounds.size.width - self.scaledWidth,
+                                    y: self.bounds.size.height - (SCALE_BAR_HEIGHT*2) - (PADDING*2),
+                                    width: SCALE_BAR_HEIGHT,
+                                    height: SCALE_BAR_HEIGHT*2))
+
+
+                context.setFillColor(self.bodyColor.cgColor)
+
+                context.fill(CGRect(x: self.bounds.size.width - self.scaledWidth + PADDING,
+                                    y: self.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING),
+                                    width: self.scaledWidth - (PADDING*2),
+                                    height: SCALE_BAR_HEIGHT - (PADDING*2)))
+
+                context.fill(CGRect(x: self.bounds.size.width - self.scaledWidth + PADDING,
+                                    y: self.bounds.size.height - (SCALE_BAR_HEIGHT*2) - (PADDING),
+                                    width: SCALE_BAR_HEIGHT - (PADDING*2),
+                                    height: (SCALE_BAR_HEIGHT*2) - (PADDING*2)))
+                break
         }
     }
     
