@@ -74,13 +74,14 @@ public final class UIMapScaleView: UIView
         let metersPerPixel = CGFloat(mapView.visibleMapRect.size.width * horizontalDistance) / mapView.bounds.size.width
         
         let value = calculateDistance(metersPerPixel)
-        
         self.scaledWidth = value.width
         self.setNeedsDisplay()
         
         
-        if let label = self.distanceLabel
+        guard let label = self.distanceLabel else
         {
+            return
+        }
 //            let attributes: [NSAttributedString.Key : Any] = [
 //                            NSAttributedString.Key.strokeColor : self.outlineColor,
 //                            NSAttributedString.Key.foregroundColor : self.bodyColor,
@@ -91,25 +92,23 @@ public final class UIMapScaleView: UIView
 //                                    string: String(format: "%d %@", value.value, value.unit),
 //                                    attributes: attributes)
             
-            
-            label.text = String(format: "%d %@", value.value, value.unit)
-            label.sizeToFit()
+        label.text = String(format: "%d %@", value.value, value.unit)
+        label.sizeToFit()
 
-            label.frame = CGRect(x: PADDING,
-                              y: self.bounds.size.height - label.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING*2),
-                              width: self.bounds.width - (PADDING*2),
-                              height: label.bounds.size.height)
-            
-            switch self.direction
-            {
-                case .leftToRight:
-                    self.distanceLabel?.textAlignment = .left
-                    break
-                
-                case .rightToLeft:
-                    self.distanceLabel?.textAlignment = .right
-                    break
-            }
+        label.frame = CGRect(x: PADDING,
+                          y: self.bounds.size.height - label.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING*2),
+                          width: self.bounds.width - (PADDING*2),
+                          height: label.bounds.size.height)
+
+        switch self.direction
+        {
+            case .leftToRight:
+                self.distanceLabel?.textAlignment = .left
+                break
+
+            case .rightToLeft:
+                self.distanceLabel?.textAlignment = .right
+                break
         }
     }
     
