@@ -38,6 +38,7 @@ scale_view.setup(mapView) // initial
 // implement from MKMapViewDelegate
 func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool)
 {
+   // udpate with mapView
    scaleView.setNeedsLayout()
 }
 ```
