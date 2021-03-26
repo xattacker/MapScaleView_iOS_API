@@ -17,7 +17,7 @@ pod 'MapScaleView'
 ```
 
 ### Swift Package Manager
-To add RadarView to a [Swift Package Manager](https://swift.org/package-manager/) based project, add:
+To add MapScaleView to a [Swift Package Manager](https://swift.org/package-manager/) based project, add:
 
 ```swift
 .package(url: "https://github.com/xattacker/MapScaleView_iOS_API.git", .upToNextMajor(from: "1.0.1")),
