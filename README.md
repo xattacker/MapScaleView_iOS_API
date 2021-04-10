@@ -20,7 +20,7 @@ pod 'MapScaleView'
 To add MapScaleView to a [Swift Package Manager](https://swift.org/package-manager/) based project, add:
 
 ```swift
-.package(url: "https://github.com/xattacker/MapScaleView_iOS_API.git", .upToNextMajor(from: "1.0.1")),
+.package(url: "https://github.com/xattacker/MapScaleView_iOS_API.git", .upToNextMajor(from: "1.1.0")),
 ```
 to your `Package.swift` files `dependencies` array.
 <br><br>
