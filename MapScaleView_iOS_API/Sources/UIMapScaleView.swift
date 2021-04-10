@@ -17,15 +17,19 @@ public enum MapScaleExpandDirection
     case rightToLeft // right to right
 }
 
+public enum MapScaleDistanceUnit
+{
+    case metric
+    case imperial // UK
+}
+
 
 @IBDesignable
 public final class UIMapScaleView: UIView
 {
     private let SCALE_BAR_HEIGHT = CGFloat(4.5)
     private let PADDING = CGFloat(1)
-    
-    public var direction: MapScaleExpandDirection = .leftToRight
-    
+
     @IBInspectable public var bodyColor: UIColor = UIColor.darkGray
     {
         didSet
@@ -41,7 +45,32 @@ public final class UIMapScaleView: UIView
             self.distanceLabel?.shadowColor = self.outlineColor
         }
     }
-   
+    
+    public var direction: MapScaleExpandDirection = .leftToRight
+    {
+        didSet
+        {
+            switch self.direction
+            {
+                case .leftToRight:
+                    self.distanceLabel?.textAlignment = .left
+                    break
+
+                case .rightToLeft:
+                    self.distanceLabel?.textAlignment = .right
+                    break
+            }
+        }
+    }
+    
+    public var unit: MapScaleDistanceUnit = .metric
+    {
+        didSet
+        {
+            self.setNeedsLayout()
+        }
+    }
+    
     private weak var mapView: MKMapView?
     private weak var distanceLabel: UILabel?
     private var scaledWidth = CGFloat(0)
@@ -72,9 +101,9 @@ public final class UIMapScaleView: UIView
 
         let horizontalDistance = MKMetersPerMapPointAtLatitude(mapView.centerCoordinate.latitude)
         let metersPerPixel = CGFloat(mapView.visibleMapRect.size.width * horizontalDistance) / mapView.bounds.size.width
+        let distance = self.calculateDistance(metersPerPixel)
         
-        let value = calculateDistance(metersPerPixel)
-        self.scaledWidth = value.width
+        self.scaledWidth = distance.width
         self.setNeedsDisplay()
         
         
@@ -92,24 +121,14 @@ public final class UIMapScaleView: UIView
 //                                    string: String(format: "%d %@", value.value, value.unit),
 //                                    attributes: attributes)
             
-        label.text = String(format: "%d %@", value.value, value.unit)
+        label.text = String(format: "%d %@", distance.value, distance.unit)
         label.sizeToFit()
 
-        label.frame = CGRect(x: PADDING,
-                          y: self.bounds.size.height - label.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING*2),
-                          width: self.bounds.width - (PADDING*2),
-                          height: label.bounds.size.height)
-
-        switch self.direction
-        {
-            case .leftToRight:
-                self.distanceLabel?.textAlignment = .left
-                break
-
-            case .rightToLeft:
-                self.distanceLabel?.textAlignment = .right
-                break
-        }
+        label.frame = CGRect(
+                      x: PADDING,
+                      y: self.bounds.size.height - label.bounds.size.height - SCALE_BAR_HEIGHT - (PADDING*2),
+                      width: self.bounds.width - (PADDING*2),
+                      height: label.bounds.size.height)
     }
     
     public override func draw(_ rect: CGRect)
@@ -126,7 +145,7 @@ public final class UIMapScaleView: UIView
 
         switch self.direction
         {
-            case MapScaleExpandDirection.leftToRight:
+            case .leftToRight:
                 // draw outline
                 context.setFillColor(self.outlineColor.cgColor)
 
@@ -154,7 +173,7 @@ public final class UIMapScaleView: UIView
                                     height: (SCALE_BAR_HEIGHT*2) - (PADDING*2)))
                 break
 
-            case MapScaleExpandDirection.rightToLeft:
+            case .rightToLeft:
                 // draw outline
                 context.setFillColor(self.outlineColor.cgColor)
 
@@ -188,7 +207,11 @@ public final class UIMapScaleView: UIView
     {
         self.mapView = mapView
     }
-    
+}
+
+
+extension UIMapScaleView
+{
     private func initView()
     {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: 20))
@@ -208,19 +231,38 @@ public final class UIMapScaleView: UIView
         let maxScaleWidth = self.bounds.size.width - (PADDING * 2)
         let meters = maxScaleWidth * metersPerPixel
 
-        maxValue = meters.roundDistance()
-        scaleWidth = maxScaleWidth * CGFloat(maxValue) / meters
+        switch self.unit
+        {
+            case .metric:
+                maxValue = meters.roundDistance()
+                scaleWidth = maxScaleWidth * CGFloat(maxValue) / meters
+                
+                if maxValue >= 1000
+                {
+                    maxValue = maxValue / 1000
+                    unit = "km"
+                }
+                else
+                {
+                    unit = "m"
+                }
+                break
+                
+            case .imperial:
+                unit = "ft"
+                
+                var distance = (meters * 3.28)
+                if distance >= 5280
+                {
+                    distance /= 5280
+                    unit = "mi"
+                }
+                
+                maxValue = distance.roundDistance()
+                scaleWidth = maxScaleWidth * CGFloat(maxValue) / distance
+                break
+        }
         
-        if maxValue >= 1000
-        {
-            maxValue = maxValue / 1000
-            unit = "km"
-        }
-        else
-        {
-            unit = "m"
-        }
-
         return (scaleWidth, maxValue, unit)
     }
 }

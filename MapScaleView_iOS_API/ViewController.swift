@@ -21,6 +21,7 @@ class ViewController: UIViewController, MKMapViewDelegate
         
         self.mapView.delegate = self
         self.scaleView.setupMap(self.mapView)
+        //self.scaleView.unit = .imperial
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool)
