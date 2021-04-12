@@ -33,6 +33,7 @@ import MapScaleView
 let scale_view: UIMapScaleView
 
 scale_view.setup(mapView) // initial 
+scale_view.unit = .metric // you could set distance unit by metric / imperial, default is metric
 
 
 // implement from MKMapViewDelegate
