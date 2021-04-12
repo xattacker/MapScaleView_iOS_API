@@ -249,13 +249,15 @@ extension UIMapScaleView
                 break
                 
             case .imperial:
-                unit = "ft"
-                
                 var distance = (meters * 3.28)
                 if distance >= 5280
                 {
                     distance /= 5280
                     unit = "mi"
+                }
+                else
+                {
+                    unit = "ft"
                 }
                 
                 maxValue = distance.roundDistance()
