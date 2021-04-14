@@ -13,8 +13,8 @@ import MapKit
 // ScaleView setup with MKMapView
 class ViewController: UIViewController, MKMapViewDelegate
 {
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var scaleView: UIMapScaleView!
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var scaleView: UIMapScaleView!
 
     override func viewDidLoad()
     {
@@ -22,7 +22,7 @@ class ViewController: UIViewController, MKMapViewDelegate
         // Do any additional setup after loading the view, typically from a nib.
         
         self.mapView.delegate = self
-        self.scaleView.setupMap(self.mapView)
+        self.scaleView.mapScaleCalculator = self.mapView
         //self.scaleView.unit = .imperial
     }
     
@@ -32,4 +32,3 @@ class ViewController: UIViewController, MKMapViewDelegate
         self.scaleView.setNeedsLayout()
     }
 }
-

@@ -23,6 +23,22 @@ public enum MapScaleDistanceUnit
     case imperial // UK
 }
 
+public protocol MapScaleCalculator: class
+{
+    var metersPerPixel: CGFloat { get }
+}
+
+
+extension MKMapView: MapScaleCalculator
+{
+    public var metersPerPixel: CGFloat
+    {
+        let horizontalDistance = MKMetersPerMapPointAtLatitude(self.centerCoordinate.latitude)
+        let metersPerPixel = CGFloat(self.visibleMapRect.size.width * horizontalDistance) / self.bounds.size.width
+        return metersPerPixel
+    }
+}
+
 
 @IBDesignable
 public final class UIMapScaleView: UIView
@@ -71,7 +87,8 @@ public final class UIMapScaleView: UIView
         }
     }
     
-    private weak var mapView: MKMapView?
+    public weak var mapScaleCalculator: MapScaleCalculator?
+    
     private weak var distanceLabel: UILabel?
     private var scaledWidth = CGFloat(0)
 
@@ -93,16 +110,13 @@ public final class UIMapScaleView: UIView
     {
         super.layoutSubviews()
         
-        guard let mapView = self.mapView else
+        guard let calculator = self.mapScaleCalculator else
         {
             return
         }
         
 
-        let horizontalDistance = MKMetersPerMapPointAtLatitude(mapView.centerCoordinate.latitude)
-        let metersPerPixel = CGFloat(mapView.visibleMapRect.size.width * horizontalDistance) / mapView.bounds.size.width
-        let distance = self.calculateDistance(metersPerPixel)
-        
+        let distance = self.calculateDistance(calculator.metersPerPixel)
         self.scaledWidth = distance.width
         self.setNeedsDisplay()
         
@@ -203,9 +217,9 @@ public final class UIMapScaleView: UIView
         }
     }
     
-    public func setupMap(_ mapView: MKMapView)
+    deinit
     {
-        self.mapView = mapView
+        self.mapScaleCalculator = nil
     }
 }
 
