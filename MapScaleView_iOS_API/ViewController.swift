@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 
+
+// ScaleView setup with MKMapView
 class ViewController: UIViewController, MKMapViewDelegate
 {
     @IBOutlet weak var mapView: MKMapView!
@@ -24,6 +26,7 @@ class ViewController: UIViewController, MKMapViewDelegate
         //self.scaleView.unit = .imperial
     }
     
+    // MARK: implement from MKMapViewDelegate
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool)
     {
         self.scaleView.setNeedsLayout()

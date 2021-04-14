@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		656B415F224246320082D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656B415D224246320082D3F5 /* Main.storyboard */; };
 		656B4161224246330082D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656B4160224246330082D3F5 /* Assets.xcassets */; };
 		656B4164224246330082D3F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656B4162224246330082D3F5 /* LaunchScreen.storyboard */; };
+		684D42A62626851D005504B0 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D42A52626851D005504B0 /* GoogleMapViewController.swift */; };
 		68A40D012452B3040032147E /* UIMapScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A40D002452B3030032147E /* UIMapScaleView.swift */; };
 		B945E9ABD77D84DCF27F1298 /* Pods_MapScaleView_iOS_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AB208212BE5DA98C44E0AA /* Pods_MapScaleView_iOS_API.framework */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		656B4160224246330082D3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		656B4163224246330082D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		656B4165224246330082D3F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		684D42A52626851D005504B0 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		68A40D002452B3030032147E /* UIMapScaleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMapScaleView.swift; sourceTree = "<group>"; };
 		95E8AAC27F44E3D21045ED6B /* Pods-MapScaleView_iOS_API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapScaleView_iOS_API.release.xcconfig"; path = "Target Support Files/Pods-MapScaleView_iOS_API/Pods-MapScaleView_iOS_API.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 				68A40CFF2452B3030032147E /* Sources */,
 				656B4159224246320082D3F5 /* AppDelegate.swift */,
 				656B415B224246320082D3F5 /* ViewController.swift */,
+				684D42A52626851D005504B0 /* GoogleMapViewController.swift */,
 				656B415D224246320082D3F5 /* Main.storyboard */,
 				656B4160224246330082D3F5 /* Assets.xcassets */,
 				656B4162224246330082D3F5 /* LaunchScreen.storyboard */,
@@ -96,7 +99,6 @@
 				14046017D97CB484620B2CDF /* Pods-MapScaleView_iOS_API.debug.xcconfig */,
 				95E8AAC27F44E3D21045ED6B /* Pods-MapScaleView_iOS_API.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -218,6 +220,7 @@
 			files = (
 				68A40D012452B3040032147E /* UIMapScaleView.swift in Sources */,
 				656B415C224246320082D3F5 /* ViewController.swift in Sources */,
+				684D42A62626851D005504B0 /* GoogleMapViewController.swift in Sources */,
 				656B415A224246320082D3F5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
