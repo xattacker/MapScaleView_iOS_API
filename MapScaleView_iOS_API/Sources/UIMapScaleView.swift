@@ -155,8 +155,6 @@ public final class UIMapScaleView: UIView
         }
         
         
-        context.setFillColor(UIColor.darkText.cgColor)
-
         switch self.direction
         {
             case .leftToRight:
@@ -173,7 +171,7 @@ public final class UIMapScaleView: UIView
                                     width: SCALE_BAR_HEIGHT,
                                     height: SCALE_BAR_HEIGHT*2))
 
-
+                // draw body
                 context.setFillColor(self.bodyColor.cgColor)
 
                 context.fill(CGRect(x: PADDING + PADDING,
@@ -201,7 +199,7 @@ public final class UIMapScaleView: UIView
                                     width: SCALE_BAR_HEIGHT,
                                     height: SCALE_BAR_HEIGHT*2))
 
-
+                // draw body
                 context.setFillColor(self.bodyColor.cgColor)
 
                 context.fill(CGRect(x: self.bounds.size.width - self.scaledWidth + PADDING,
