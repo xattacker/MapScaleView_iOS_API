@@ -33,6 +33,9 @@ import MapScaleView
 let scale_view: UIMapScaleView
 
 scale_view.mapScaleCalculator = mapView //  setup with mapView
+scale_view.outlineColor = UIColor.white
+scale_view.bodyColor = UIColor.black
+scale_view.direction = .leftToRight // set the bar start direction in leftToRight / rightToRight, default is leftToRight
 scale_view.unit = .metric // you could set distance unit in metric / imperial, default is metric mode
 
 
