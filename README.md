@@ -32,7 +32,7 @@ import MapScaleView
 
 let scale_view: UIMapScaleView
 
-scale_view.mapScaleCalculator = mapView //  setup with mapView
+scale_view.mapScaleCalculator = mapView //  setup with MKMapView
 scale_view.outlineColor = UIColor.white
 scale_view.bodyColor = UIColor.black
 scale_view.direction = .leftToRight // set the bar start direction in leftToRight / rightToRight, default is leftToRight
@@ -64,7 +64,7 @@ func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition)
    scaleView.setNeedsLayout()
 }
 
-// make GMSMapView could support ScaleView
+// let GMSMapView implement protocol MapScaleCalculator that make it could support ScaleView
 extension GMSMapView: MapScaleCalculator
 {
     public var metersPerPixel: CGFloat
