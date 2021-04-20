@@ -47,7 +47,7 @@ func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool)
 }
 ```
 
-### How to support with Google Map API:
+### How to support Google Map API:
 
 ```
 import MapScaleView
