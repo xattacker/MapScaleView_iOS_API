@@ -23,7 +23,7 @@ public enum MapScaleDistanceUnit
     case imperial // UK
 }
 
-public protocol MapScaleCalculator: class
+public protocol MapScaleCalculator: AnyObject
 {
     var metersPerPixel: CGFloat { get }
 }
