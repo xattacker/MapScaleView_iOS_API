@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'MapScaleView'
-  s.version = '1.2.0'
+  s.version = '1.2.2'
   s.license = 'BSD'
   s.summary = 'MapScaleView iOS Swift API'
   s.homepage = 'https://github.com/xattacker/MapScaleView_iOS_API'
