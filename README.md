@@ -60,7 +60,7 @@ scale_view.mapScaleCalculator = mapView //  setup with GMSMapView
 // implement from GMSMapViewDelegate
 func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition)
 {
-   // udpate with mapView
+   // update with mapView
    scaleView.setNeedsLayout()
 }
 
