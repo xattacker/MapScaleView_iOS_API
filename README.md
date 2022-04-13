@@ -55,7 +55,7 @@ import GoogleMaps
 
 let scale_view: UIMapScaleView
 
-scale_view.mapScaleCalculator = mapView //  setup with GMSMapView
+scale_view.mapScaleCalculator = mapView // setup with GMSMapView
 
 // implement from GMSMapViewDelegate
 func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition)
