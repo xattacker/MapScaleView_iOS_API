@@ -1,6 +1,6 @@
 //
 //  UIMapScaleView.swift
-//  Mapa turystyczna
+//  MapScaleView
 //
 //  Created by xattacker on 2019/03/20.
 //  Copyright © 2019年 xattacker. All rights reserved.
