@@ -284,7 +284,7 @@ extension UIMapScaleView
 
 extension CGFloat
 {
-    func roundDistance() -> Int
+    fileprivate func roundDistance() -> Int
     {
         var roundedDistance = 1
         var i = 0
