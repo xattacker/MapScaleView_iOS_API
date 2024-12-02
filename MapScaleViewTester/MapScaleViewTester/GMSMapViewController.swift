@@ -1,5 +1,5 @@
 //
-//  GoogleMapViewController.swift
+//  GMSMapViewController.swift
 //  MapScaleView_iOS_API
 //
 //  Created by xattacker on 2021/4/14.
@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import MapScaleView
 import GoogleMaps
 
 
 // ScaleView setup with GMSMapView
-class GoogleMapViewController: UIViewController, GMSMapViewDelegate
+class GMSMapViewController: UIViewController, GMSMapViewDelegate
 {
     @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var scaleView: UIMapScaleView!

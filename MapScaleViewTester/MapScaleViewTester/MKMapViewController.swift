@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MKMapViewController.swift
 //  MapScaleView_iOS_API
 //
 //  Created by xattacker on 2019/3/20.
@@ -8,10 +8,11 @@
 
 import UIKit
 import MapKit
+import MapScaleView
 
 
 // ScaleView setup with MKMapView
-class ViewController: UIViewController, MKMapViewDelegate
+class MKMapViewController: UIViewController, MKMapViewDelegate
 {
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var scaleView: UIMapScaleView!

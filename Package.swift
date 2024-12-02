@@ -21,7 +21,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "MapScaleView",
- 	    path: "MapScaleView_iOS_API/Sources"),
+ 	    path: "MapScaleView/MapScaleView"),
     ],
     swiftLanguageVersions: [.v5]
 )

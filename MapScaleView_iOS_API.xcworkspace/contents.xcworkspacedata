@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:MapScaleView_iOS_API.xcodeproj">
+      location = "group:MapScaleView/MapScaleView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MapScaleViewTester/MapScaleViewTester.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
