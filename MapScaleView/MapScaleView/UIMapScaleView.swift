@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 import MapKit
 import Darwin
 
@@ -278,6 +279,59 @@ extension UIMapScaleView
         }
         
         return (scaleWidth, maxValue, unit)
+    }
+}
+
+
+public struct MapScaleView: UIViewRepresentable
+{
+    public typealias UIViewType = UIMapScaleView
+    
+    private let scaleView = UIMapScaleView(frame: CGRect.zero)
+    
+    public func bodyColor(_ color: Color) -> MapScaleView
+    {
+        self.scaleView.bodyColor = UIColor(color)
+        return self
+    }
+    
+    public func outlineColor(_ color: Color) -> MapScaleView
+    {
+        self.scaleView.outlineColor = UIColor(color)
+        return self
+    }
+    
+    public func direction(_ direction: MapScaleExpandDirection) -> MapScaleView
+    {
+        self.scaleView.direction = direction
+        return self
+    }
+    
+    public func unit(_ unit: MapScaleDistanceUnit) -> MapScaleView
+    {
+        self.scaleView.unit = unit
+        return self
+    }
+    
+    public func scaleCalculator(_ calculator: MapScaleCalculator) -> MapScaleView
+    {
+        self.scaleView.mapScaleCalculator = calculator
+        return self
+    }
+    
+    public func setNeedLayout() -> MapScaleView
+    {
+        self.scaleView.setNeedsLayout()
+        return self
+    }
+    
+    public func makeUIView(context: Context) -> UIMapScaleView
+    {
+        return self.scaleView
+    }
+    
+    public func updateUIView(_ uiView: UIMapScaleView, context: Context)
+    {
     }
 }
 
