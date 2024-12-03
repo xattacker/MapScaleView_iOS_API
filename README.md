@@ -2,7 +2,7 @@
 
 an iOS swift Map ScaleView UI View component 
 <br><br>
-Development Target: iOS 10
+Development Target: iOS 14
 <br><br>
 Provide a scale view with iOS MKMapView:<br>
 <img src="/rm_res/cut1.png" alt="图片替换文本" width="50%" height="50%" align="bottom" /><br><br>
@@ -32,7 +32,7 @@ import MapScaleView
 
 let scale_view: UIMapScaleView
 
-scale_view.mapScaleCalculator = mapView // setup with MKMapView
+scale_view.scaleCalculator = mapView // setup with MKMapView
 scale_view.outlineColor = UIColor.white
 scale_view.bodyColor = UIColor.black
 scale_view.direction = .leftToRight // set the bar start direction in leftToRight / rightToRight, default is leftToRight
