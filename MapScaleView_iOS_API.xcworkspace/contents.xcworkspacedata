@@ -8,6 +8,9 @@
       location = "group:MapScaleViewTester/MapScaleViewTester.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:MapScaleViewTester_SwiftUI/MapScaleViewTester_SwiftUI.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

@@ -27,7 +27,7 @@ class GMSMapViewController: UIViewController, GMSMapViewDelegate
         self.mapView.camera = position
         
         self.mapView.delegate = self
-        self.scaleView.mapScaleCalculator = self.mapView
+        self.scaleView.scaleCalculator = self.mapView
     }
     
     // MARK: implement from GMSMapViewDelegate

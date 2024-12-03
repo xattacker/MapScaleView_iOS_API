@@ -88,7 +88,7 @@ public final class UIMapScaleView: UIView
         }
     }
     
-    public weak var mapScaleCalculator: MapScaleCalculator?
+    public weak var scaleCalculator: MapScaleCalculator?
     
     private weak var distanceLabel: UILabel?
     private var scaledWidth = CGFloat(0)
@@ -111,7 +111,7 @@ public final class UIMapScaleView: UIView
     {
         super.layoutSubviews()
         
-        guard let calculator = self.mapScaleCalculator else
+        guard let calculator = self.scaleCalculator else
         {
             return
         }
@@ -215,11 +215,6 @@ public final class UIMapScaleView: UIView
                 break
         }
     }
-    
-    deinit
-    {
-        self.mapScaleCalculator = nil
-    }
 }
 
 
@@ -289,36 +284,46 @@ public struct MapScaleView: UIViewRepresentable
     
     private let scaleView = UIMapScaleView(frame: CGRect.zero)
     
+    public init()
+    {
+    }
+    
+    @discardableResult
     public func bodyColor(_ color: Color) -> MapScaleView
     {
         self.scaleView.bodyColor = UIColor(color)
         return self
     }
     
+    @discardableResult
     public func outlineColor(_ color: Color) -> MapScaleView
     {
         self.scaleView.outlineColor = UIColor(color)
         return self
     }
     
+    @discardableResult
     public func direction(_ direction: MapScaleExpandDirection) -> MapScaleView
     {
         self.scaleView.direction = direction
         return self
     }
     
+    @discardableResult
     public func unit(_ unit: MapScaleDistanceUnit) -> MapScaleView
     {
         self.scaleView.unit = unit
         return self
     }
     
+    @discardableResult
     public func scaleCalculator(_ calculator: MapScaleCalculator) -> MapScaleView
     {
-        self.scaleView.mapScaleCalculator = calculator
+        self.scaleView.scaleCalculator = calculator
         return self
     }
     
+    @discardableResult
     public func setNeedLayout() -> MapScaleView
     {
         self.scaleView.setNeedsLayout()
@@ -332,6 +337,8 @@ public struct MapScaleView: UIViewRepresentable
     
     public func updateUIView(_ uiView: UIMapScaleView, context: Context)
     {
+        uiView.backgroundColor = .clear
+        uiView.setNeedsLayout()
     }
 }
 

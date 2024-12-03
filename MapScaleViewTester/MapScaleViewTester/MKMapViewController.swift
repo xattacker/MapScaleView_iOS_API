@@ -23,7 +23,7 @@ class MKMapViewController: UIViewController, MKMapViewDelegate
         // Do any additional setup after loading the view, typically from a nib.
         
         self.mapView.delegate = self
-        self.scaleView.mapScaleCalculator = self.mapView
+        self.scaleView.scaleCalculator = self.mapView
         //self.scaleView.unit = .imperial
     }
     
