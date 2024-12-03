@@ -23,18 +23,19 @@ struct ContentView: View {
     var body: some View {
         GeometryReader {
             geometry in
-            VStack {
-                self.scaleView
-                    .bodyColor(.black)
-                    .outlineColor(.gray)
-                    .direction(.leftToRight)
-                    .scaleCalculator(self.scaleCalculator)
-                    .frame(minWidth: 0, maxWidth: 140, minHeight: 0, maxHeight: 40)
+            ZStack(alignment: .topTrailing) {
                 Map(coordinateRegion: $region, showsUserLocation: true)
                     .onChange(of: region) {
                         newRegion in
                         updateMetersPerPixel(newRegion, screenWidth: geometry.size.width)
                     }
+                self.scaleView
+                    .bodyColor(.black)
+                    .outlineColor(.gray)
+                    .direction(.rightToLeft)
+                    .scaleCalculator(self.scaleCalculator)
+                    .frame(minWidth: 0, maxWidth: 140, minHeight: 0, maxHeight: 30)
+                    .padding([.trailing, .top], 10) // 偏移到右上角位置
             }
         }
     }
