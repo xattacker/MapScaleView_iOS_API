@@ -44,7 +44,7 @@ struct ContentView: View {
         let latitude = region.center.latitude
         let latitudeDelta = region.span.latitudeDelta
         // 地圖可見區域的寬度（經度跨度轉換為公尺）
-        let mapWidthInMeters = latitudeDelta * 111_320.0 * cos(latitude * .pi / 180) / 1000.0
+        let mapWidthInMeters = latitudeDelta * 111.32 * cos(latitude * .pi / 180)
         print("metersPerPixel: \(mapWidthInMeters)")
         
         self.scaleCalculator.metersPerPixel = mapWidthInMeters
