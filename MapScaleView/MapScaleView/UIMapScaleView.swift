@@ -24,6 +24,7 @@ public enum MapScaleDistanceUnit
     case imperial // UK
 }
 
+@MainActor
 public protocol MapScaleCalculator: AnyObject
 {
     var metersPerPixel: CGFloat { get }
@@ -41,6 +42,7 @@ extension MKMapView: MapScaleCalculator
 }
 
 
+@MainActor
 @IBDesignable
 public final class UIMapScaleView: UIView
 {

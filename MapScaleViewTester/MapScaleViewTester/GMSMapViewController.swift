@@ -12,7 +12,7 @@ import GoogleMaps
 
 
 // ScaleView setup with GMSMapView
-class GMSMapViewController: UIViewController, GMSMapViewDelegate
+class GMSMapViewController: UIViewController, @MainActor GMSMapViewDelegate
 {
     @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var scaleView: UIMapScaleView!
